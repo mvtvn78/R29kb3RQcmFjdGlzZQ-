@@ -1,0 +1,160 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhmnevdbymxov"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_1644e"]
+[ext_resource type="Texture2D" uid="uid://ddt18x30kjjmp" path="res://Assets/body/char_a_p1_0bas_humn_v01.png" id="2_s0tla"]
+[ext_resource type="Texture2D" uid="uid://dpg70eiwafm8x" path="res://Assets/hair/char_a_p1_4har_bob1_v01.png" id="3_7v64s"]
+[ext_resource type="Texture2D" uid="uid://b0xun5rcnfovr" path="res://Assets/outfit/char_a_p1_1out_boxr_v01.png" id="4_uchrf"]
+[ext_resource type="Texture2D" uid="uid://blwsxhwbrrvcb" path="res://Assets/accessories/char_a_p1_5hat_pnty_v04.png" id="5_ew6c4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n8niy"]
+
+[sub_resource type="Animation" id="Animation_r7r7o"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton/Body:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton/Hair:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton/Outfit:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton/Accessory:frame_coords")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5rj5o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton/Body:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton/Hair:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton/Outfit:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton/Accessory:frame_coords")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1y1p1"]
+_data = {
+"RESET": SubResource("Animation_5rj5o"),
+"idle_down": SubResource("Animation_r7r7o")
+}
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_1644e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n8niy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Skeleton" type="Node" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("2_s0tla")
+hframes = 8
+vframes = 8
+
+[node name="Hair" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("3_7v64s")
+hframes = 8
+vframes = 8
+
+[node name="Outfit" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("4_uchrf")
+hframes = 8
+vframes = 8
+
+[node name="Accessory" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("5_ew6c4")
+hframes = 8
+vframes = 8
+
+[node name="Name" type="Label" parent="Skeleton"]
+offset_left = -21.0
+offset_top = -44.0
+offset_right = 26.0
+offset_bottom = -21.0
+text = "Name"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1y1p1")
+}
