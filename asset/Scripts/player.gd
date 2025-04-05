@@ -7,6 +7,7 @@ const speed = 200
 @onready var outfit =$Skeleton/Outfit
 @onready var accessory =$Skeleton/Accessory
 @onready var nameLabel  =$Skeleton/Name
+@onready var animation_player = $AnimationPlayer
 func _ready() -> void:
 	intialize_player()
 func  _physics_process(delta: float) -> void:		
@@ -18,13 +19,26 @@ func  _physics_process(delta: float) -> void:
 		last_dir = dir
 	# update direction and velocity
 	if dir.x != 0:
-		velocity.x = dir.x * speed
-	else :
-		velocity.x = move_toward(velocity.x,0,speed * delta)
+		#velocity.x = dir.x * speed
+		if dir.x< 0:
+			animation_player.play("walk_left")
+		else :
+			animation_player.play("walk_right")
 	if dir.y != 0:
-		velocity.y = dir.y * speed
-	else :
-		velocity.y = move_toward(velocity.y,0,speed * delta)
+		#velocity.y = dir.y * speed
+		if dir.y< 0:
+			animation_player.play("walk_up")
+		else :
+			animation_player.play("walk_down")
+	if dir == Vector2.ZERO:
+		if last_dir.x < 0: 
+			animation_player.play("idle_left")
+		if last_dir.x > 0:
+			animation_player.play("idle_right")
+		if last_dir.y < 0:
+			animation_player.play("idle_up")
+		if last_dir.y > 0 :
+			animation_player.play("idle_down")
 	move_and_slide()
 func intialize_player():
 	body.texture = Global.bodies_collection[Global.selected_body]
@@ -35,6 +49,6 @@ func intialize_player():
 		hair.texture = Global.hair_collection[Global.selected_hair]
 		hair.modulate = Global.selected_hair_color
 	if Global.selected_accessories != "none":
-		hair.texture = Global.accessories_collection[Global.selected_accessories]
-		hair.modulate = Global.selected_accessories_color
+		accessory.texture = Global.accessories_collection[Global.selected_accessories]
+		accessory.modulate = Global.selected_accessories_color
 	nameLabel.text= Global.playerName
