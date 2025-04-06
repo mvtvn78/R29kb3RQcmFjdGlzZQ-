@@ -41,3 +41,20 @@ func set_item(new_item):
 		item_effect.text = str(item["effect"])
 	else:
 		item_effect.text =""
+
+
+func _on_drop_btn_pressed() -> void:
+	if item !=null:
+		var drop_position = Global.player_node.global_position 
+		var drop_offset = Vector2(0,50)
+		drop_offset = drop_offset.rotated(Global.player_node.rotation)
+		Global.drop_item(item,drop_position + drop_offset)
+		Global.remove_item(item["type"],item["effect"])
+
+
+func _on_use_btn_pressed() -> void:
+	usage_panel.visible  =false
+	if item != null :
+		if Global.player_node:
+			Global.player_node.apply_item_effect(item)
+			Global.remove_item(item["type"],item["effect"])

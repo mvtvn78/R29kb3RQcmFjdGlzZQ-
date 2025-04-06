@@ -1,26 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://7jf804ttpkcu"]
+[gd_scene load_steps=5 format=3 uid="uid://7jf804ttpkcu"]
 
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_oefys"]
 [ext_resource type="PackedScene" uid="uid://crb8budhg8bo4" path="res://Scenes/TileMap.tscn" id="1_qffu5"]
 [ext_resource type="PackedScene" uid="uid://kfddngccegfe" path="res://Scenes/Player.tscn" id="2_q8f3t"]
-[ext_resource type="PackedScene" uid="uid://cowljw6nv33md" path="res://Scenes/inventory.tscn" id="3_ne30w"]
-[ext_resource type="Texture2D" uid="uid://bdi600ohf3wsg" path="res://Assets/Icons/icon4.png" id="4_mjvow"]
-[ext_resource type="Texture2D" uid="uid://dtir5kmhydso1" path="res://Assets/Icons/icon20.png" id="5_gtwxc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ai20d"]
+size = Vector2(400, 400)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_oefys")
 
 [node name="TileMap" parent="." instance=ExtResource("1_qffu5")]
 
 [node name="Player" parent="." instance=ExtResource("2_q8f3t")]
 position = Vector2(518, 314)
 
-[node name="Inventory_Item" parent="." instance=ExtResource("3_ne30w")]
-position = Vector2(638, 298)
-item_type = "Quest"
-item_name = "Posion"
-item_texture = ExtResource("4_mjvow")
+[node name="Items" type="Node2D" parent="."]
 
-[node name="Inventory_Item2" parent="." instance=ExtResource("3_ne30w")]
-position = Vector2(564, 351)
-item_type = "Quest"
-item_name = "Coin"
-item_texture = ExtResource("5_gtwxc")
+[node name="ItemSpawnArea" type="Area2D" parent="."]
+position = Vector2(602, 342)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemSpawnArea"]
+shape = SubResource("RectangleShape2D_ai20d")

@@ -32,3 +32,10 @@ func _input(event: InputEvent) -> void:
 		inventory_ui.visible = ! inventory_ui.visible
 		#Pause game
 		get_tree().paused = ! get_tree().paused
+func apply_item_effect(item):
+	match item["effect"]:
+		"Stamina": 
+			speed +=50
+			print("Speed increase to ", speed)
+		_:
+			print("No effect for this item")

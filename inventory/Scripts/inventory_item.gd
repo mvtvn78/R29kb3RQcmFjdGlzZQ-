@@ -44,3 +44,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player_in_range = true
 		body.iteract_ui.visible =true
+func set_item_data(data):
+	item_type = data["type"]
+	item_name = data["name"]
+	item_effect = data["effect"]
+	item_texture = data["texture"]
+func initiate_items(type,name,effect,texture):
+	item_type =type
+	item_name= name
+	item_effect = effect
+	item_texture = texture
+	
