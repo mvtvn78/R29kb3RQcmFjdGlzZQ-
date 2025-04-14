@@ -8,6 +8,7 @@ const speed = 200
 @onready var accessory =$Skeleton/Accessory
 @onready var nameLabel  =$Skeleton/Name
 @onready var animation_player = $AnimationPlayer
+@onready var audio_walk =$Audio_walk
 func _ready() -> void:
 	intialize_player()
 func  _physics_process(delta: float) -> void:		
@@ -24,13 +25,18 @@ func  _physics_process(delta: float) -> void:
 			animation_player.play("walk_left")
 		else :
 			animation_player.play("walk_right")
+		if ! audio_walk.playing : 
+			audio_walk.play()
 	if dir.y != 0:
 		#velocity.y = dir.y * speed
 		if dir.y< 0:
 			animation_player.play("walk_up")
 		else :
 			animation_player.play("walk_down")
+		if ! audio_walk.playing : 
+			audio_walk.play()
 	if dir == Vector2.ZERO:
+		audio_walk.stop()
 		if last_dir.x < 0: 
 			animation_player.play("idle_left")
 		if last_dir.x > 0:

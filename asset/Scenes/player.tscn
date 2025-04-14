@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhmnevdbymxov"]
+[gd_scene load_steps=18 format=3 uid="uid://bhmnevdbymxov"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1644e"]
 [ext_resource type="Texture2D" uid="uid://ddt18x30kjjmp" path="res://Assets/body/char_a_p1_0bas_humn_v01.png" id="2_s0tla"]
 [ext_resource type="Texture2D" uid="uid://dpg70eiwafm8x" path="res://Assets/hair/char_a_p1_4har_bob1_v01.png" id="3_7v64s"]
 [ext_resource type="Texture2D" uid="uid://b0xun5rcnfovr" path="res://Assets/outfit/char_a_p1_1out_boxr_v01.png" id="4_uchrf"]
 [ext_resource type="Texture2D" uid="uid://7rd0x02oxatk" path="res://Assets/accessories/char_a_p1_5hat_pfht_v04.png" id="5_i7r88"]
+[ext_resource type="AudioStream" uid="uid://bhnl0se05eajh" path="res://sound/player_walking.mp3" id="6_ghb50"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8niy"]
 
@@ -111,8 +112,8 @@ tracks/3/keys = {
 "values": [Vector2i(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_efdip"]
-resource_name = "idle_up"
+[sub_resource type="Animation" id="Animation_epsid"]
+resource_name = "idle_left"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -124,7 +125,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 1)]
+"values": [Vector2i(0, 3)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -136,7 +137,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.0333333),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 1)]
+"values": [Vector2i(0, 3)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -148,7 +149,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.0666667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 1)]
+"values": [Vector2i(0, 3)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -160,7 +161,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 1)]
+"values": [Vector2i(0, 3)]
 }
 
 [sub_resource type="Animation" id="Animation_pljwq"]
@@ -215,8 +216,8 @@ tracks/3/keys = {
 "values": [Vector2i(0, 2)]
 }
 
-[sub_resource type="Animation" id="Animation_epsid"]
-resource_name = "idle_left"
+[sub_resource type="Animation" id="Animation_efdip"]
+resource_name = "idle_up"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -228,7 +229,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 3)]
+"values": [Vector2i(0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -240,7 +241,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.0333333),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 3)]
+"values": [Vector2i(0, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -252,7 +253,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.0666667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 3)]
+"values": [Vector2i(0, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -264,7 +265,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 3)]
+"values": [Vector2i(0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_mk6x2"]
@@ -319,8 +320,8 @@ tracks/3/keys = {
 "values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4)]
 }
 
-[sub_resource type="Animation" id="Animation_i73bf"]
-resource_name = "walk_up"
+[sub_resource type="Animation" id="Animation_ktwhu"]
+resource_name = "walk_left"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -332,7 +333,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5)]
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -344,7 +345,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5)]
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -356,7 +357,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5)]
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -368,7 +369,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5)]
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7)]
 }
 
 [sub_resource type="Animation" id="Animation_tgnxx"]
@@ -423,8 +424,8 @@ tracks/3/keys = {
 "values": [Vector2i(0, 6), Vector2i(1, 6), Vector2i(2, 6), Vector2i(3, 6), Vector2i(4, 6), Vector2i(5, 6)]
 }
 
-[sub_resource type="Animation" id="Animation_ktwhu"]
-resource_name = "walk_left"
+[sub_resource type="Animation" id="Animation_i73bf"]
+resource_name = "walk_up"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -436,7 +437,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7)]
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -448,7 +449,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7)]
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -460,7 +461,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7)]
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -472,7 +473,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7)]
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1y1p1"]
@@ -534,3 +535,7 @@ text = "Name"
 libraries = {
 "": SubResource("AnimationLibrary_1y1p1")
 }
+
+[node name="Audio_walk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ghb50")
+bus = &"SoundEFX"
